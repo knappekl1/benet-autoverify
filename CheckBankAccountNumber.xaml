@@ -2,11 +2,12 @@
   <x:Members>
     <x:Property Name="in_Account" Type="InArgument(x:String)" />
     <x:Property Name="out_AccountCorrect" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="in_BankCode" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2154,1187.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2154,2114.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CheckBankAccountNumber_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -65,15 +66,15 @@
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="476,623.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_8">
+  <Sequence sap:VirtualizedContainerService.HintSize="776.666666666667,2050" sap2010:WorkflowViewState.IdRef="Sequence_8">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="434,531.333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="734.666666666667,1958" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="CheckBankAccountNumber" sap:VirtualizedContainerService.HintSize="696,1822.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence DisplayName="CheckBankAccountNumber" sap:VirtualizedContainerService.HintSize="696,1720" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="s:Int32[]" Name="WeightList" />
             <Variable x:TypeArguments="x:Int32" Name="Index" />
@@ -179,8 +180,7 @@
               </ActivityAction>
             </ui:ForEach.Body>
           </ui:ForEach>
-          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="654,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[DigitSum &amp; VbCr &amp; DigitSum MOD 11]" />
-          <If Condition="[DigitSum MOD 11 = 0]" DisplayName="If Correct test" sap:VirtualizedContainerService.HintSize="654,410.666666666667" sap2010:WorkflowViewState.IdRef="If_2">
+          <If Condition="[DigitSum MOD 11 = 0 AND in_BankCode.Trim.Length =4]" DisplayName="If Correct test" sap:VirtualizedContainerService.HintSize="654,410.666666666667" sap2010:WorkflowViewState.IdRef="If_2">
             <If.Then>
               <Sequence DisplayName="Set True and Log" sap:VirtualizedContainerService.HintSize="304,256.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
                 <sap:WorkflowViewStateService.ViewState>
@@ -221,10 +221,10 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,359.333333333333" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="700.666666666667,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
