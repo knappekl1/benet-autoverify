@@ -1,0 +1,256 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="CheckBankAccountNumber" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Account" Type="InArgument(x:String)" />
+    <x:Property Name="out_AccountCorrect" Type="OutArgument(x:Boolean)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>2154,1187.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>CheckBankAccountNumber_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="50">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="23">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="476,623.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_8">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="434,531.333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence DisplayName="CheckBankAccountNumber" sap:VirtualizedContainerService.HintSize="696,1822.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="s:Int32[]" Name="WeightList" />
+            <Variable x:TypeArguments="x:Int32" Name="Index" />
+            <Variable x:TypeArguments="x:Int32" Name="DigitProduct" />
+            <Variable x:TypeArguments="x:Int32" Name="DigitSum">
+              <Variable.Default>
+                <Literal x:TypeArguments="x:Int32" />
+              </Variable.Default>
+            </Variable>
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If Condition="[in_Account.Length &lt; 10]" DisplayName="If less than 10 Digits" sap:VirtualizedContainerService.HintSize="654,640.666666666667" sap2010:WorkflowViewState.IdRef="If_1">
+            <If.Then>
+              <Sequence DisplayName="Add Leading Zeroes" sap:VirtualizedContainerService.HintSize="382.666666666667,486.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:String" Name="ZeroString">
+                    <Variable.Default>
+                      <Literal x:TypeArguments="x:String" Value="" />
+                    </Variable.Default>
+                  </Variable>
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each Digit" sap:VirtualizedContainerService.HintSize="340.666666666667,292.666666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Enumerable.Range(1, 10 - in_Account.Length)]">
+                  <ui:ForEach.Body>
+                    <ActivityAction x:TypeArguments="x:Object">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Create ZEro String" sap:VirtualizedContainerService.HintSize="304,154" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign DisplayName="Assign Zeroes" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_1">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[ZeroString]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[ZeroString + "0"]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ForEach.Body>
+                </ui:ForEach>
+                <Assign DisplayName="Assign 10 digit Account Number" sap:VirtualizedContainerService.HintSize="340.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_2">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[in_Account]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[ZeroString + in_Account.Trim]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </If.Then>
+          </If>
+          <Assign DisplayName="Assign Weights" sap:VirtualizedContainerService.HintSize="654,62" sap2010:WorkflowViewState.IdRef="Assign_3">
+            <Assign.To>
+              <OutArgument x:TypeArguments="s:Int32[]">[WeightList]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="s:Int32[]">[{6, 3, 7, 9, 10, 5, 8, 4, 2, 1}]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:ForEach x:TypeArguments="x:Char" CurrentIndex="[Index]" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="654,394.666666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_6" Values="[in_Account]">
+            <ui:ForEach.Body>
+              <ActivityAction x:TypeArguments="x:Char">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Char" Name="digit" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Calculate SumProduct" sap:VirtualizedContainerService.HintSize="304,256" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign DisplayName="Assign Product" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_4">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[DigitProduct]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[WeightList(Index) * Val(digit)]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="Assign Sum od DigitProduct" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_5">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[DigitSum]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[DigitSum + DigitProduct]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEach.Body>
+          </ui:ForEach>
+          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="654,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[DigitSum &amp; VbCr &amp; DigitSum MOD 11]" />
+          <If Condition="[DigitSum MOD 11 = 0]" DisplayName="If Correct test" sap:VirtualizedContainerService.HintSize="654,410.666666666667" sap2010:WorkflowViewState.IdRef="If_2">
+            <If.Then>
+              <Sequence DisplayName="Set True and Log" sap:VirtualizedContainerService.HintSize="304,256.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign DisplayName="Assign Account Correct" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_6">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Boolean">[out_AccountCorrect]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="bank Account Correct" />
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="Set False and Log" sap:VirtualizedContainerService.HintSize="304,256.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign DisplayName="Assign Account Incorrect" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_7">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Boolean">[out_AccountCorrect]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="bank Account Incorrect" />
+              </Sequence>
+            </If.Else>
+          </If>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,359.333333333333" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Assign False and Log" sap:VirtualizedContainerService.HintSize="376,288.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign DisplayName="Assign False" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_8">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[out_AccountCorrect]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Error verifying Bank Account Number&quot;]" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>
