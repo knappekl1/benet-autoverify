@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2154,14650.6666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2154,1898.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="82">
@@ -91,7 +91,7 @@
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Entire Process" sap:VirtualizedContainerService.HintSize="1496,14586" sap2010:WorkflowViewState.IdRef="Sequence_44">
+  <Sequence DisplayName="Entire Process" sap:VirtualizedContainerService.HintSize="606.666666666667,1834" sap2010:WorkflowViewState.IdRef="Sequence_44">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="https://api.elis.rossum.ai/v1" Name="Endpoint" />
       <Variable x:TypeArguments="x:Int32" Name="InvoiceCounter" />
@@ -104,7 +104,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1454,14494" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="564.666666666667,1742" sap2010:WorkflowViewState.IdRef="TryCatch_3">
       <TryCatch.Try>
         <Sequence sap2010:Annotation.AnnotationText="This workflow logs to ELIS using credentials provided in 'credentials.json'. It can validate imported documents based on the logic provided in 'Automatic Verification' (see placeholder). Without providing the customized logic, this workflow validates all documents by default. " DisplayName="Optional_AutomatedVerification" sap:VirtualizedContainerService.HintSize="1415.33333333333,14256" sap2010:WorkflowViewState.IdRef="Sequence_19">
           <Sequence.Variables>
@@ -1029,7 +1029,7 @@
                                                   <InArgument x:TypeArguments="x:Boolean">[Not(cdbl(row.Item("VAT Base")) = 0 AND cdbl(row.Item("Total Base")) = 0)]</InArgument>
                                                 </Assign.Value>
                                               </Assign>
-                                              <If Condition="[row.item(&quot;Description&quot;).ToString isnot &quot;0&quot;]" DisplayName="If Description line present" sap:VirtualizedContainerService.HintSize="654,554" sap2010:WorkflowViewState.IdRef="If_23">
+                                              <If Condition="[row.item(&quot;Description&quot;).ToString isnot &quot;0&quot;]" DisplayName="If Description line present" sap:VirtualizedContainerService.HintSize="654,539.333333333333" sap2010:WorkflowViewState.IdRef="If_23">
                                                 <If.Then>
                                                   <Sequence DisplayName="Verify Data" sap:VirtualizedContainerService.HintSize="304,403.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_60">
                                                     <sap:WorkflowViewStateService.ViewState>
@@ -1188,7 +1188,7 @@
                                           <ActivityAction.Argument>
                                             <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                                           </ActivityAction.Argument>
-                                          <Sequence DisplayName="Test Failed" sap:VirtualizedContainerService.HintSize="304,318.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_65">
+                                          <Sequence DisplayName="Test Failed" sap:VirtualizedContainerService.HintSize="304,316" sap2010:WorkflowViewState.IdRef="Sequence_65">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1560,7 +1560,7 @@
                           </ui:LogMessage>
                           <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_2">
                             <ui:CommentOut.Body>
-                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="731.333333333333,2173.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="731.333333333333,2072" sap2010:WorkflowViewState.IdRef="Sequence_48">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1835,7 +1835,7 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1420,22" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="530.666666666667,22" sap2010:WorkflowViewState.IdRef="Catch`1_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1875,7 +1875,7 @@
           </sap:WorkflowViewStateService.ViewState>
           <If Condition="[Not InvoiceCounter = 0]" sap:VirtualizedContainerService.HintSize="484,303.333333333333" sap2010:WorkflowViewState.IdRef="If_18">
             <If.Then>
-              <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;Máte &quot; + InvoiceCounter.ToString + &quot; nových faktur ke kontrole v systému Rossum&quot; + vbCr + &quot;https://elis.rossum.ai/&quot; + vbCr + VbCr + &quot;Toto je automatická zpráva&quot;]" DisplayName="Send SMTP Mail Notification" Email="[ConfigObj.Item(&quot;EmailSender&quot;).ToString]" EnableSSL="True" From="[ConfigObj.Item(&quot;EmailSender&quot;).ToString]" sap:VirtualizedContainerService.HintSize="334,149.333333333333" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="False" Password="[ConfigObj.Item(&quot;PasswordSender&quot;).ToString]" Port="587" SecureConnection="Auto" Server="smtp.gmail.com" Subject="New Invoices to Check in Rossum" To="[ConfigObj.Item(&quot;EmailNotification&quot;).ToString]">
+              <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;Máte &quot; + InvoiceCounter.ToString + &quot; nových faktur ke kontrole v systému Rossum&quot; + vbCr + &quot;https://elis.rossum.ai/&quot; + vbCr + VbCr + &quot;Toto je automatická zpráva&quot;]" DisplayName="Send SMTP Mail Notification" Email="[ConfigObj.Item(&quot;EmailSender&quot;).ToString]" EnableSSL="True" From="[ConfigObj.Item(&quot;EmailSender&quot;).ToString]" sap:VirtualizedContainerService.HintSize="334,149.333333333333" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="False" Password="[ConfigObj.Item(&quot;PasswordSender&quot;).ToString]" Port="[Cint(ConfigObj.Item(&quot;SMTPport&quot;).ToString)]" SecureConnection="Auto" Server="[ConfigObj.Item(&quot;SMTPserver&quot;).ToString]" Subject="New Invoices to Check in Rossum" To="[ConfigObj.Item(&quot;EmailNotification&quot;).ToString]">
                 <ui:SendMail.Files>
                   <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
                 </ui:SendMail.Files>
@@ -1936,7 +1936,7 @@
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Trace" Message="[&quot;Acount logged out.&quot;]" />
           <If Condition="[Not out_VerifiedCount.Equals(&quot;0&quot;)]" DisplayName="If any Verified " sap:VirtualizedContainerService.HintSize="484,221.333333333333" sap2010:WorkflowViewState.IdRef="If_26">
             <If.Then>
-              <ui:StartJob NumberOfRobots="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Starts data export from Rossum workflow" DisplayName="Start Job" sap:VirtualizedContainerService.HintSize="200,67.3333333333333" sap2010:WorkflowViewState.IdRef="StartJob_1" ProcessName="Faktury- stáhnout data">
+              <ui:StartJob TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Starts data export from Rossum workflow" DisplayName="Start Job" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="200,67.3333333333333" sap2010:WorkflowViewState.IdRef="StartJob_1" NumberOfRobots="1" ProcessName="Faktury- stáhnout data">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>

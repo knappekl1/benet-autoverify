@@ -2,6 +2,8 @@
 "SourceFolder":"C:\\Users\\libor\\Dropbox\\LK_docs\\Valuetools\\Zákazníci\\Benet Automotive\\Demo Process\\Invoice-Dispatcher\\Data\\Output\\Processing",
 "TargetFolder":"C:\\Users\\libor\\Dropbox\\LK_docs\\Valuetools\\Zákazníci\\Benet Automotive\\Demo Process\\Invoice-Dispatcher\\Data\\Output\\Processed",
 "EmailNotification": "libor.knappek@valuetools.cz",
-"EmailSender":"info@valuetools.cz",
-"PasswordSender":"Liborknappek1+"
+"EmailSender":"no.reply@benet-auto.cz",
+"PasswordSender":"b6bbb1It3",
+"SMTPport":"465",
+"SMTPserver": "mail.benet-auto.cz"
 }
