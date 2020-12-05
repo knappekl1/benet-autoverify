@@ -9,10 +9,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2154,1898.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2154,15408</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="82">
+    <scg:List x:TypeArguments="x:String" Capacity="42">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -91,7 +91,7 @@
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Entire Process" sap:VirtualizedContainerService.HintSize="606.666666666667,1834" sap2010:WorkflowViewState.IdRef="Sequence_44">
+  <Sequence DisplayName="Entire Process" sap:VirtualizedContainerService.HintSize="1496,15343.3333333333" sap2010:WorkflowViewState.IdRef="Sequence_44">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="https://api.elis.rossum.ai/v1" Name="Endpoint" />
       <Variable x:TypeArguments="x:Int32" Name="InvoiceCounter" />
@@ -104,9 +104,9 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="564.666666666667,1742" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1454,15251.3333333333" sap2010:WorkflowViewState.IdRef="TryCatch_3">
       <TryCatch.Try>
-        <Sequence sap2010:Annotation.AnnotationText="This workflow logs to ELIS using credentials provided in 'credentials.json'. It can validate imported documents based on the logic provided in 'Automatic Verification' (see placeholder). Without providing the customized logic, this workflow validates all documents by default. " DisplayName="Optional_AutomatedVerification" sap:VirtualizedContainerService.HintSize="1415.33333333333,14256" sap2010:WorkflowViewState.IdRef="Sequence_19">
+        <Sequence sap2010:Annotation.AnnotationText="This workflow logs to ELIS using credentials provided in 'credentials.json'. It can validate imported documents based on the logic provided in 'Automatic Verification' (see placeholder). Without providing the customized logic, this workflow validates all documents by default. " DisplayName="Optional_AutomatedVerification" sap:VirtualizedContainerService.HintSize="1415.33333333333,15013.3333333333" sap2010:WorkflowViewState.IdRef="Sequence_19">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="loginID" />
             <Variable x:TypeArguments="sd:DataTable" Name="DT_Invoice" />
@@ -211,7 +211,7 @@
               </Assign.Value>
             </Assign>
           </Sequence>
-          <Sequence DisplayName="Automatic Verification" sap:VirtualizedContainerService.HintSize="1373.33333333333,12218" sap2010:WorkflowViewState.IdRef="Sequence_17">
+          <Sequence DisplayName="Automatic Verification" sap:VirtualizedContainerService.HintSize="1373.33333333333,12975.3333333333" sap2010:WorkflowViewState.IdRef="Sequence_17">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="authKey" />
               <Variable x:TypeArguments="x:String" Name="ResultJSON" />
@@ -488,13 +488,13 @@
                 </Assign.Value>
               </Assign>
             </Sequence>
-            <ui:ForEach x:TypeArguments="njl:JObject" CurrentIndex="[Counter]" DisplayName="Process each document" sap:VirtualizedContainerService.HintSize="1331.33333333333,9192" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[objJSON(&quot;results&quot;)]">
+            <ui:ForEach x:TypeArguments="njl:JObject" CurrentIndex="[Counter]" DisplayName="Process each document" sap:VirtualizedContainerService.HintSize="1331.33333333333,9949.33333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[objJSON(&quot;results&quot;)]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="njl:JObject">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="njl:JObject" Name="URL" />
                   </ActivityAction.Argument>
-                  <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Extract values and decide if to be verified" sap:VirtualizedContainerService.HintSize="1294.66666666667,9053.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                  <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Extract values and decide if to be verified" sap:VirtualizedContainerService.HintSize="1294.66666666667,9810.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_16">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:Boolean" Name="ConfirmDoc" />
                       <Variable x:TypeArguments="x:String" Name="ExportedDataJson" />
@@ -614,7 +614,7 @@
                         <ui:ReadCsvFile DataTable="[DT_Invoice]" Delimitator="Comma" DisplayName="Read as CSV" Encoding="UTF-8" FilePath="Data\temp.txt" sap:VirtualizedContainerService.HintSize="382.666666666667,156.666666666667" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
                       </Sequence>
                     </Sequence>
-                    <Sequence DisplayName="Verify Imported Data" sap:VirtualizedContainerService.HintSize="1252.66666666667,6570" sap2010:WorkflowViewState.IdRef="Sequence_67">
+                    <Sequence DisplayName="Verify Imported Data" sap:VirtualizedContainerService.HintSize="1252.66666666667,7327.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_67">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:Boolean" Name="TotalAmountTest" />
                         <Variable x:TypeArguments="x:Boolean" Name="ZeroValueTest" />
@@ -625,13 +625,14 @@
                         <Variable x:TypeArguments="x:Boolean" Name="OrderNumberExists" />
                         <Variable x:TypeArguments="x:Boolean" Name="InvoiceNumberExists" />
                         <Variable x:TypeArguments="x:Boolean" Name="AccountCorrect" />
+                        <Variable x:TypeArguments="x:Boolean" Name="DeliveryNoteExists" />
                       </Sequence.Variables>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence sap2010:Annotation.AnnotationText="General test if Invoice number exists in datatable and if Description Exists in datatable" DisplayName="Global Tests" sap:VirtualizedContainerService.HintSize="1210.66666666667,2887.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_54">
+                      <Sequence sap2010:Annotation.AnnotationText="General test if Invoice number exists in datatable and if Various Items exist in DataTable" DisplayName="Global Tests" sap:VirtualizedContainerService.HintSize="1210.66666666667,3644.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_54">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -678,6 +679,61 @@
                                       </Assign>
                                       <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="Invoice Number Found" />
                                       <ui:Break sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Break_3" />
+                                    </Sequence>
+                                  </If.Else>
+                                </If>
+                              </Sequence>
+                            </ActivityAction>
+                          </ui:ForEachRow.Body>
+                        </ui:ForEachRow>
+                        <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[DT_Invoice]" DisplayName="For Each Row check Delivery Note" sap:VirtualizedContainerService.HintSize="1168.66666666667,717.333333333333" sap2010:WorkflowViewState.IdRef="ForEachRow_10">
+                          <ui:ForEachRow.Body>
+                            <ActivityAction x:TypeArguments="sd:DataRow">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+                              </ActivityAction.Argument>
+                              <Sequence DisplayName="Check if Delivery Note field not Empty" sap:VirtualizedContainerService.HintSize="696,564.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_78">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If Condition="[row.Item(&quot;Delivery Note&quot;).Equals(&quot;&quot;)]" DisplayName="If Delivery Note Empty" sap:VirtualizedContainerService.HintSize="654,472.666666666667" sap2010:WorkflowViewState.IdRef="If_30">
+                                  <If.Then>
+                                    <Sequence DisplayName="Assign False and Log" sap:VirtualizedContainerService.HintSize="304,256.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_79">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <Assign DisplayName="Assign False" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_83">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:Boolean">[DeliveryNoteExists]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_17" Text="Delivery note not found" />
+                                    </Sequence>
+                                  </If.Then>
+                                  <If.Else>
+                                    <Sequence DisplayName="Make True and Break" sap:VirtualizedContainerService.HintSize="304,318.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_77">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <Assign DisplayName="Assign True" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_84">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:Boolean">[DeliveryNoteExists]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_16" Text="Delivery Note Number Found" />
+                                      <ui:Break sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Break_9" />
                                     </Sequence>
                                   </If.Else>
                                 </If>
@@ -777,7 +833,7 @@
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <If Condition="[row.Item(&quot;Order Number&quot;).ToString.Equals(&quot;&quot;)]" DisplayName="If Descriotion Empty" sap:VirtualizedContainerService.HintSize="896.666666666667,728.666666666667" sap2010:WorkflowViewState.IdRef="If_20">
+                                <If Condition="[row.Item(&quot;Order Number&quot;).ToString.Equals(&quot;&quot;)]" DisplayName="If Order Number Empty" sap:VirtualizedContainerService.HintSize="896.666666666667,728.666666666667" sap2010:WorkflowViewState.IdRef="If_20">
                                   <If.Then>
                                     <Sequence DisplayName="Assign False and Log" sap:VirtualizedContainerService.HintSize="304,256.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_74">
                                       <sap:WorkflowViewStateService.ViewState>
@@ -962,7 +1018,7 @@
                           </TryCatch.Catches>
                         </TryCatch>
                       </Sequence>
-                      <If Condition="[OrderNumberExists AND InvoiceNumberExists AND Dates AND AccountCorrect]" DisplayName="If Global test passed" sap:VirtualizedContainerService.HintSize="1210.66666666667,2234" sap2010:WorkflowViewState.IdRef="If_25">
+                      <If Condition="[OrderNumberExists AND InvoiceNumberExists AND Dates AND AccountCorrect AND DeliveryNoteExists]" DisplayName="If Global test passed" sap:VirtualizedContainerService.HintSize="1210.66666666667,2234" sap2010:WorkflowViewState.IdRef="If_25">
                         <If.Then>
                           <ui:ForEachRow CurrentIndex="[Index]" DataTable="[DT_Invoice]" DisplayName="For Each Row do counting tests" sap:VirtualizedContainerService.HintSize="827.333333333333,2080" sap2010:WorkflowViewState.IdRef="ForEachRow_8">
                             <ui:ForEachRow.Body>
@@ -1015,7 +1071,7 @@
                                         </Assign>
                                         <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="654,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_5">
                                           <ui:CommentOut.Body>
-                                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="696,748" sap2010:WorkflowViewState.IdRef="Sequence_75">
+                                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="696,733.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_75">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
