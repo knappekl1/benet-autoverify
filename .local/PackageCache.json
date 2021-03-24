@@ -207,12 +207,12 @@
     },
     "CsvHelper": {
       "Id": "CsvHelper",
-      "Version": "2.13.5",
+      "Version": "2.13.5.0",
       "Dependencies": []
     },
     "DocumentFormat.OpenXml": {
       "Id": "DocumentFormat.OpenXml",
-      "Version": "2.5.0",
+      "Version": "2.5",
       "Dependencies": []
     },
     "Extended.Wpf.Toolkit": {
@@ -308,7 +308,7 @@
     },
     "Microsoft.Exchange.WebServices": {
       "Id": "Microsoft.Exchange.WebServices",
-      "Version": "2.2.0",
+      "Version": "2.2",
       "Dependencies": []
     },
     "Microsoft.Identity.Client": {
@@ -702,7 +702,7 @@
     {
       "Package": {
         "Id": "CsvHelper",
-        "Version": "2.13.5"
+        "Version": "2.13.5.0"
       },
       "Assemblies": [
         "C:\\Users\\libor\\.nuget\\packages\\csvhelper\\2.13.5\\lib\\net40-client\\CsvHelper.dll"
@@ -712,7 +712,7 @@
     {
       "Package": {
         "Id": "DocumentFormat.OpenXml",
-        "Version": "2.5.0"
+        "Version": "2.5"
       },
       "Assemblies": [
         "C:\\Users\\libor\\.nuget\\packages\\documentformat.openxml\\2.5.0\\lib\\DocumentFormat.OpenXml.dll"
@@ -818,7 +818,7 @@
     {
       "Package": {
         "Id": "Microsoft.Exchange.WebServices",
-        "Version": "2.2.0"
+        "Version": "2.2"
       },
       "Assemblies": [
         "C:\\Users\\libor\\.nuget\\packages\\microsoft.exchange.webservices\\2.2.0\\lib\\40\\Microsoft.Exchange.WebServices.Auth.dll",
